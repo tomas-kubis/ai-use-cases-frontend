@@ -40,14 +40,14 @@
     <!-- Main Content -->
     <main class="container">
         <!-- Baserow data -->
-        <iframe id="benchmarks-iframe" src="https://baserow.io/public/grid/kbyHkUMwpC4BgPVp-0M0PXVao54JHKqfXFZ3Z-Ss4CA" 
+        <iframe id="baserow-iframe" src="https://baserow.io/public/grid/kbyHkUMwpC4BgPVp-0M0PXVao54JHKqfXFZ3Z-Ss4CA" 
                 width="100%" 
                 style="border: none; overflow: auto;"
                 title="AI Benchmarks Data">
         </iframe>
         
         <!-- Call-Out -->
-        <div id="alert-box" class="alert alert-secondary text-center small py-2 mb-3" role="alert">
+        <div id="alert-box" class="alert alert-secondary text-center small py-1 mb-1" role="alert">
             Explore AI Benchmarks: To filter, click the filter icon in the top left corner and add criteria such as industry, use case category, type of outcome or type of benchmark. Use the “has” option in the middle field of the filter menu to apply color-coded categories. To search, click the search icon in the top right. To view all details for a selected use case, click the zoom icon that appears at the beginning of a row. Labels and descriptions are AI-generated and may contain errors. Please share feedback <a href="mailto:tomas@tomaskubis.com">here</a>.
         </div>
         
@@ -57,7 +57,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="container-fluid py-4 bg-light mt-5 border-top">
+    <footer class="container-fluid py-1 bg-light mt-1 border-top">
         <div class="container text-center">
             <p class="mb-0">&copy; 2024 AI Use Cases Project | <a href="mailto:tomas@tomaskubis.com">Email Me</a></p>
         </div>
@@ -78,7 +78,7 @@
 
         // Adjust iframe height based on viewport size
         function adjustIframeHeight() {
-            const iframe = document.getElementById('benchmarks-iframe');
+            const iframe = document.getElementById('baserow-iframe');
             const headerHeight = document.querySelector('header').offsetHeight;
             const footerHeight = document.querySelector('footer').offsetHeight;
             const availableHeight = window.innerHeight - headerHeight - footerHeight - 40; // Adding some padding
