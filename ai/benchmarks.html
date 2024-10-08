@@ -6,7 +6,8 @@
     <title>AI Benchmarks</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<style>
         .nav-link {
             color: grey;
             text-decoration: none;
@@ -38,15 +39,19 @@
 
     <!-- Main Content -->
     <main class="container my-5">
-        <!-- Call-Out -->
-        <div class="alert alert-secondary text-center small py-2 mb-3" role="alert">
-            Explore AI Benchmarks: To filter, click the filter icon in the top left corner and add criteria such as industry, use case category, type of outcome or type of benchmark. Use the “has” option in the middle field of the filter menu to apply color-coded categories. To search, click the search icon in the top right. To view all details for a selected use case, click the zoom icon at the beginning of a row. Labels and descriptions are AI-generated and may contain errors. Please share feedback <a href="mailto:tomas@tomaskubis.com">here</a>.
-        </div>
+        <!-- Baserow data -->
         <iframe id="benchmarks-iframe" src="https://baserow.io/public/grid/kbyHkUMwpC4BgPVp-0M0PXVao54JHKqfXFZ3Z-Ss4CA" 
                 width="100%" 
                 style="border: none; overflow: auto;"
                 title="AI Benchmarks Data">
         </iframe>
+        <!-- Call-Out -->
+        <div class="alert alert-secondary text-center small py-2 mb-3" role="alert">
+            Explore AI Benchmarks: To filter, click the filter icon in the top left corner and add criteria such as industry, use case category, type of outcome or type of benchmark. Use the “has” option in the middle field of the filter menu to apply color-coded categories. To search, click the search icon in the top right. To view all details for a selected use case, click the zoom icon that appears at the beginning of a row. Labels and descriptions are AI-generated and may contain errors. Please share feedback <a href="mailto:tomas@tomaskubis.com">here</a>.
+        </div>
+        <button id="info-toggle" class="btn btn-link p-0">
+            <i class="bi bi-info-circle" style="font-size: 1.5rem;"></i> Info
+        </button>    
     </main>
 
     <!-- Footer -->
@@ -74,14 +79,19 @@
             const iframe = document.getElementById('benchmarks-iframe');
             const headerHeight = document.querySelector('header').offsetHeight;
             const footerHeight = document.querySelector('footer').offsetHeight;
-            const callOutHeight = document.querySelector('.alert').offsetHeight;
-            const availableHeight = window.innerHeight - headerHeight - footerHeight - callOutHeight - 40; // Adding some padding
+            const availableHeight = window.innerHeight - headerHeight - footerHeight - 40; // Adding some padding
             iframe.style.height = availableHeight + 'px';
         }
 
         // Adjust iframe height on load and resize
         window.addEventListener('load', adjustIframeHeight);
         window.addEventListener('resize', adjustIframeHeight);
+
+        // Toggle alert box visibility
+        document.getElementById('info-toggle').addEventListener('click', function () {
+            const alertBox = document.getElementById('alert-box');
+            alertBox.classList.toggle('show');
+        });
     </script>
 </body>
 </html>
