@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Use Cases Frontend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .nav-link {
+            color: grey;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .nav-link.active {
+            color: black;
+            font-weight: 700;
+        }
+        h3.m-0 {
+            font-size: 1.5rem;
+        }
+        .card {
+            cursor: pointer;
+            border: 1px solid #e0e0e0;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .card-body .card-title::after {
+            content: '\2192';
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .card:hover .card-body .card-title::after {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid py-3 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h3 class="m-0">Real AI Stories</h3>
+            <nav class="d-flex gap-3">
+                <a href="index.html" class="nav-link" id="about-link">About</a>
+                <a href="use-cases.html" class="nav-link" id="use-cases-link">Use Cases</a>
+                <a href="benchmarks.html" class="nav-link" id="benchmarks-link">Benchmarks</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Short Description -->
+        <section class="text-left mb-5">
+            <h4>Welcome to the Real AI Stories Project!</h4>
+            <p>I am Tomas and this is my personal project I started to deepen my understanding of enterprise AI. My goal is to explore how companies are using AI and how AI itself can be used to surface these insights (I know, very meta!). Right now, it is a proof-of-concept library of AI use cases and benchmarks. If you are looking for inspiration, I hope you will find it a useful resource even in its current form.</p>
+        </section>
+
+        <!-- Tiles with Links -->
+        <div class="row g-4">
+            <!-- AI Use Cases Tile -->
+            <div class="col-md-6">
+                <a href="use-cases.html" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body text-left">
+                            <h3 class="card-title">AI Use Cases</h3>
+                            <p class="card-text">Explore a library of around 1,300 real AI use cases collected from AWS and GCP websites. Each use case has been annotated using a pre-trained AI model, allowing you to filter by industry, business function, use case taxonomy, or other dimensions. Visit the original source links to validate the information.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- AI Benchmarks Tile -->
+            <div class="col-md-6">
+                <a href="benchmarks.html" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body text-left">
+                            <h3 class="card-title">AI Benchmarks</h3>
+                            <p class="card-text">Explore a collection of around 3,000 success metric benchmarks to help you calibrate your own aspirations. These benchmarks have been identified and extracted using an AI model and can be inaccurate. Refer to the original sources linked to validate the data.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            <!-- Future Directions Section -->
+        <section class="text-left mt-5">
+            <h4>Where is the project right now and where is it heading?</h4>
+            <p>Currently, this is a proof of concept. To test the approach, I focused on use cases from AWS and GCP websites due to their extensive coverage. Using GPT-4o-mini, I built an initial application to automate annotation and extract benchmarks. While it’s not perfect, the experiment has shown that with some structuring (e.g., taxonomies), it performs well and has potential to scale.</p>
+            <p>I plan to take the project further with a few initial ideas:</p>
+            <ul>
+                <li>Analyze patterns and trends (e.g., common use cases by industry and function).</li>
+                <li>Expand data sources to include more companies, such as foundation model vendors, enterprise AI specialists, and vertical AI solution providers.</li>
+                <li>Enhance the taxonomy for improved pattern recognition.</li>
+                <li>Build an AI expert to leverage the database through Retrieval-Augmented Generation (RAG) or similar approaches.</li>
+            </ul>
+            <p>What would be most helpful for you? Your feedback is welcome and will help shape the future of this project!</p>
+        </section>
+            <!-- How Was It Built Section -->
+        <section class="text-left mt-5">
+            <h4>How was it built?</h4>
+            <p>This proof-of-concept version has been built in Python with a focus on speed and simplicity. Here’s an overview of the key features:</p>
+            <ul>
+                <li><strong>Success Story Crawler:</strong> Uses Playwright to gather links to real-life AI use cases from AI tech companies' websites.</li>
+                <li><strong>Content Scraper:</strong> Extracts relevant content from these websites using Trafilatura.</li>
+                <li><strong>Automated Data Annotation:</strong> Leverages a pre-trained model (currently OpenAI’s GPT-4o-mini) to annotate use cases and identify success metrics.</li>
+                <li><strong>Data Access:</strong> Baserow to share the structured data.</li>
+            </ul>
+            <p>This approach will continue to evolve as I expand the dataset and refine the insights.</p>
+        </section>
+
+        <!-- Connect With Me Section -->
+        <section class="text-left mt-5">
+            <h4>Connect with me</h4>
+            <p>If you would like to share feedback, ask questions, or discuss potential collaboration, feel free to reach out:</p>
+            <ul>
+                <li><a href="mailto:tomas@tomaskubis.com">Email Me</a></li>
+                <li><a href="https://www.linkedin.com/in/tomaskubis/" target="_blank">Connect on LinkedIn</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container-fluid py-4 bg-light mt-5 border-top">
+        <div class="container text-left">
+            <p class="mb-0">&copy; 2024 Real AI Stories Project | <a href="mailto:tomas@tomaskubis.com">Email Me</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Highlight the current page link
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('use-cases')) {
+            document.getElementById('use-cases-link').classList.add('active');
+        } else if (currentPath.includes('benchmarks')) {
+            document.getElementById('benchmarks-link').classList.add('active');
+        } else {
+            document.getElementById('about-link').classList.add('active');
+        }
+    </script>
+</body>
+</html>
