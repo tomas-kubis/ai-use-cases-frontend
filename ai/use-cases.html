@@ -37,7 +37,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container my-5">
+    <main class="container">
         <!-- Baserow Data -->
         <iframe id="use-cases-iframe" src="https://baserow.io/public/grid/jD8dR3zkRIxusFdND0ROuyL8AfN-Uf7bPjOu5ssc6gg" 
                 width="100%" 
@@ -45,7 +45,7 @@
                 title="AI Use Cases Data">
         </iframe>
         <!-- Call-Out -->
-        <div class="alert alert-secondary text-center small py-2 mb-3" role="alert">
+        <div id="alert-box" class="alert alert-secondary text-center small py-2 mb-3" role="alert">
             Explore AI Use Cases: To filter, click the filter icon in the top left corner and add criteria such as industry, function or use case category. Use the “has” option in the middle field of the filter menu to apply color-coded categories. To search, click the search icon in the top right. To view all details for a selected use case, click the zoom icon that appears at the beginning of a row. Labels and descriptions are AI-generated and may contain errors. Please share feedback <a href="mailto:tomas@tomaskubis.com">here</a>.
         </div>
     </main>
@@ -69,21 +69,25 @@
         } else {
             document.getElementById('about-link').classList.add('active');
         }
-    </script>
-<script>
+
         // Adjust iframe height based on viewport size
         function adjustIframeHeight() {
-            const iframe = document.getElementById('use-cases-iframe');
+            const iframe = document.getElementById('benchmarks-iframe');
             const headerHeight = document.querySelector('header').offsetHeight;
             const footerHeight = document.querySelector('footer').offsetHeight;
-            const callOutHeight = document.querySelector('.alert').offsetHeight;
-            const availableHeight = window.innerHeight - headerHeight - footerHeight - callOutHeight - 40; // Adding some padding
+            const availableHeight = window.innerHeight - headerHeight - footerHeight - 40; // Adding some padding
             iframe.style.height = availableHeight + 'px';
         }
 
         // Adjust iframe height on load and resize
         window.addEventListener('load', adjustIframeHeight);
         window.addEventListener('resize', adjustIframeHeight);
+
+        // Toggle alert box visibility
+        document.getElementById('info-toggle').addEventListener('click', function () {
+            const alertBox = document.getElementById('alert-box');
+            alertBox.classList.toggle('d-none');
+        });
     </script>
     </body>
 </html>
